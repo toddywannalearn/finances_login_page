@@ -18,6 +18,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
+    print(screenWidth);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -32,17 +33,23 @@ class LoginPage extends StatelessWidget {
           ),
           Expanded(
             flex: 2,
-            child: Column(
-              children: const [
-                TextSubtitle(
-                  text: 'Manage your expenses.',
-                  textAlign: TextAlign.center,
-                ),
-                TextSubtitle(
-                  text: 'Seamlessly.',
-                  textAlign: TextAlign.center,
-                ),
-              ],
+            child: Semantics(
+              //container: true,
+              readOnly: true,
+              focusable: true,
+              explicitChildNodes: false,
+              child: Column(
+                children: const [
+                  TextSubtitle(
+                    text: 'Manage your expenses.',
+                    textAlign: TextAlign.center,
+                  ),
+                  TextSubtitle(
+                    text: 'Seamlessly.',
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
@@ -56,7 +63,7 @@ class LoginPage extends StatelessWidget {
                     style: Style(
                       backgroundColor: const Color.fromRGBO(94, 92, 229, 1),
                       borderRadius: BorderRadius.circular(5),
-                      width: screenWidth,
+                      width: screenWidth < 500 ? screenWidth : 500,
                       padding:
                       const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
                     ),
@@ -77,7 +84,7 @@ class LoginPage extends StatelessWidget {
                     style: Style(
                       backgroundColor: Colors.white,
                       borderRadius: BorderRadius.circular(5),
-                      width: screenWidth,
+                      width: screenWidth < 500 ? screenWidth : 500,
                       padding:
                       const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
                     ),

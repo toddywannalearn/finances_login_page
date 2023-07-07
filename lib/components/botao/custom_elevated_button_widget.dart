@@ -21,25 +21,30 @@ class CustomElevatedButton extends StatelessWidget {
         highlightColor: Colors.deepPurpleAccent,
         borderRadius: style?.borderRadius,
         onTap: onClick,
-        child: Container(
-          padding: style!.padding ??
-              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-          width: style?.width,
-          height: style?.height,
-          decoration: BoxDecoration(
-            border: style!.border,
-            borderRadius: style!.borderRadius,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              content?.leading != null
-                  ? Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: content?.leading)
-                  : const SizedBox(),
-              content?.text ?? const SizedBox(),
-            ],
+        child: Semantics(
+          focusable: true,
+          enabled: true,
+          button: true,
+          child: Container(
+            padding: style!.padding ??
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+            width: style?.width,
+            height: style?.height,
+            decoration: BoxDecoration(
+              border: style!.border,
+              borderRadius: style!.borderRadius,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                content?.leading != null
+                    ? Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: content?.leading)
+                    : const SizedBox(),
+                content?.text ?? const SizedBox(),
+              ],
+            ),
           ),
         ),
       ),

@@ -13,15 +13,20 @@ class TextLink extends StatelessWidget {
     var textTheme = Theme.of(context).textTheme.bodyLarge;
     return InkWell(
       onTap: onClick,
-      child: Text(
-        text,
-        textAlign: textAlign,
-        style: TextStyle(
-          fontSize: textTheme?.fontSize,
-          color: Colors.white,
-          fontWeight: FontWeight.w500,
-          decorationStyle: TextDecorationStyle.solid,
-          decoration: TextDecoration.underline
+      child: Semantics(
+        enabled: true,
+        focusable: true,
+        link: true,
+        child: Text(
+          text,
+          textAlign: textAlign,
+          style: TextStyle(
+            fontSize: textTheme?.fontSize,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+            decorationStyle: TextDecorationStyle.solid,
+            decoration: TextDecoration.underline
+          ),
         ),
       ),
     );
