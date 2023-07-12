@@ -1,6 +1,6 @@
-# finances_login_page
+# finances login page
 
-A login page made with flutter using only containers and positional widgets to create components from the scratch.
+A login page made with flutter using only containers and positional widgets to create components from scratch.
 
 The app was based on the following mockup:
 
